@@ -1,0 +1,992 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background: #0E141C;
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body::before {
+  content: " ";
+  position: absolute;  
+  top: 0;
+  left: 0;
+  right:0;
+ bottom:0;
+  background: radial-gradient(
+    circle at top,
+    #062751 0%,
+    #04152f 40%,
+    #0E141C 60%
+  );
+  z-index: -1;             /* 放在内容下层 */
+}
+
+* {
+  scrollbar-color: #2a3546 rgba(13, 19, 28, 0.8);
+  scrollbar-width: thin;
+}
+
+.loading-bg {
+  background: radial-gradient(
+    circle at center,
+    #062751 0%,
+    #04152f 40%,
+    #0E141C 60%
+  );
+}
+
+/* Loading animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.bottom-bar {
+  bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom) !important;
+  z-index: 9999 !important;
+  position: fixed !important;
+}
+
+/* Ensure bottom bar is always visible */
+.bottom-bar,
+.bottom-bar * {
+  z-index: 9999 !important;
+}
+
+/* Force bottom bar to stay visible during scrolling */
+.bottom-bar {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Ensure no other elements can hide the bottom bar */
+body {
+  overflow-x: hidden;
+}
+
+
+@media (max-width: 1024px) {
+  .main-content {
+    padding-bottom: 80px !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide native scrollbar when using custom scrollbars in overlays/dropdowns */
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+.swiper-slide {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.swiper-pagination {
+  width: 320px;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  width: 300px;
+  min-width: 300px;
+}
+
+/* Sidebar scroll isolation */
+.sidebar {
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+  isolation: isolate;
+}
+
+/* Prevent body scroll when sidebar is being scrolled */
+body.sidebar-scrolling {
+  overflow: hidden;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.7);
+}
+/* .sidebar.close {
+  min-width: 400px !important;
+} */
+
+.main-content {
+  width: 100%;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.auth-modal {
+  box-shadow: 0px 1px 0px 0px #ffffff29 inset;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .auth-modal {
+    flex-direction: column;
+  }
+}
+
+.auth-back {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #0d131c;
+  opacity: 0.73;
+  z-index: 100;
+}
+
+.auth-content {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 101;
+}
+
+.auth-modal-content {
+  width: 370px;
+  position: relative;
+  background-color: #111923;
+}
+
+.auth-modal-content-media {
+  position: relative;
+}
+
+.auth-modal-charator {
+  position: absolute;
+  width: 100%;
+  top: 160px;
+}
+
+.auth-modal-content-content {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      92.24% 59.35% at 100% 0%,
+      rgba(34, 131, 246, 0.54) 0%,
+      rgba(34, 131, 246, 0) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 20.73%, #111923 86.56%);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .auth-modal-content-content {
+    display: none;
+  }
+}
+
+.auth-modal-content-content .auth-modal-content-content-title {
+  font-family: Montserrat;
+  font-weight: 900;
+  font-style: Black;
+  font-size: 32px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
+.auth-modal-content-content .auth-modal-content-content-add {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.auth-modal-form {
+  background: #1119238a;
+  padding: 60px 24px;
+  backdrop-filter: blur(64px);
+  box-shadow: 0px 1px 0px 0px #ffffff29 inset;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.auth-modal-form {
+  width: 370px;
+}
+
+.auth-option-item {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 14px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  padding: 16px;
+}
+
+.auth-option-item.active {
+  border-bottom: 2px solid #2283f6;
+}
+
+/* Login Form Styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.input-label {
+  font-family: Montserrat;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 10px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  position: absolute;
+  top: -5px;
+  left: 8px;
+  background-color: #111923;
+  z-index: 102;
+  padding: 0px 5px;
+  color: #93acd3;
+}
+
+.label-line {
+  flex: 1;
+  height: 1px;
+  background-color: #374151;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  color: #f9fafb;
+  font-family: Montserrat;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background-color: #111923;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #2283f6;
+  box-shadow: 0 0 0 3px rgba(34, 131, 246, 0.1);
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: #9ca3af;
+  background-color: rgba(156, 163, 175, 0.1);
+}
+
+.password-toggle:focus {
+  outline: none;
+  color: #2283f6;
+}
+
+.forget-password-form {
+  display: flex;
+  justify-content: flex-end;
+  padding: 11.5px 0px;
+}
+
+.forget-password-form a {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 14px;
+  leading-trim: NONE;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  color: #2283f6;
+}
+
+.auth-button {
+  background: linear-gradient(180deg, #f9476e 0%, #bd0139 24%);
+  border: 1px solid #ffffff21;
+  box-shadow: 0px 5px 0px -2px #ed1d4980;
+  gap: 8px;
+  opacity: 1;
+  border-radius: 12px;
+  border-width: 1px;
+  padding: 13.5px;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  cursor: pointer;
+}
+
+/* Social Login Section */
+.auth-with-socials {
+  margin-top: 24px;
+}
+
+.social-login-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.social-login-title {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 14px;
+  color: #9ca3af;
+  text-align: center;
+  width: 100%;
+}
+
+.title-line {
+  flex: 1;
+  height: 1px;
+  background-color: #374151;
+  width: 100%;
+}
+
+.social-buttons-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-login-btn {
+  width: 36px;
+  height: 36px;
+  background-color: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #9ca3af;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-login-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.social-login-btn:hover::before {
+  opacity: 1;
+}
+
+.social-login-btn:hover {
+  border-color: #4b5563;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-login-btn:active {
+  transform: translateY(0);
+}
+
+.social-btn-text {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 16px;
+  color: #9ca3af;
+}
+
+.social-login-btn svg {
+  width: 20px;
+  height: 20px;
+  color: #9ca3af;
+}
+
+.social-icon-item {
+  width: 36px;
+  height: 36px;
+  opacity: 1;
+  border-radius: 8px;
+  border-width: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ffffff0a;
+  backdrop-filter: blur(64px);
+  box-shadow: 0px 1px 0px 0px #ffffff29 inset;
+  cursor: pointer;
+}
+
+.social-icon-item svg {
+  height: 16px;
+  width: 16px;
+}
+
+.social-icon-item p {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #a7b5ca;
+}
+
+.discount-code-form-label {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: right;
+  align-items: center;
+  cursor: pointer;
+}
+
+.discount-code-form-label.close {
+  color: #2283f6;
+}
+
+.policy-form p {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #a7b5ca;
+  max-width: 260px;
+  width: 100%;
+}
+
+.policy-form p a {
+  color: #2283f6;
+}
+
+.policy-form input {
+  height: 16px;
+  width: 16px;
+}
+
+.auth-option-item {
+  cursor: pointer;
+}
+
+.form-input:-webkit-autofill {
+  background-color: #111923 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #111923 inset !important;
+  -webkit-text-fill-color: #f9fafb !important;
+}
+
+@media (max-width: 1440px) {
+  .text-3xl {
+    font-size: 28px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .text-3xl {
+    font-size: 20px !important;
+  }
+}
+
+/* ========== Pagination: BULLETS ========== */
+.swiper-pagination-bullet {
+  width: 16px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  opacity: 1;
+  margin: 0 4px !important;
+  transition: background-color 0.3s ease, width 0.3s ease;
+}
+
+
+/* ========== Pagination: FRACTION ========== */
+.swiper-pagination-fraction {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* ========== Pagination: PROGRESSBAR ========== */
+.swiper-pagination-progressbar {
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+}
+.swiper-pagination-progressbar-fill {
+  background: #fff;
+}
+
+/* ========== Pagination: CUSTOM BULLET (if enabled) ========== */
+.custom-bullet {
+  background-color: transparent !important;
+  border: 2px solid white !important;
+  color: white !important;
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 26px !important;
+  border-radius: 50% !important;
+  font-size: 12px !important;
+}
+.custom-bullet.swiper-pagination-bullet-active {
+  background-color: #3b82f6 !important;
+  color: white !important;
+}
+
+
+
+/* Style all bullets */
+.swiper-pagination-bullet {
+  width: 16px !important; /* bullet length */
+  height: 8px !important; /* bullet height */
+  background-color: rgba(255, 255, 255, 0.3) !important; /* inactive color */
+  border-radius: 999px !important; /* fully rounded ends */
+  opacity: 1; /* avoid default fading */
+  transition: background-color 0.3s ease, width 0.3s ease !important;
+  margin: 0 4px !important; /* spacing between bullets */
+  opacity: 1 !important;
+}
+
+/* Active bullet */
+.swiper-pagination-bullet-active {
+  /* background-color: #3b82f6 !important;  */
+  width: 48px !important; /* slightly longer when active */
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: var(--swiper-pagination-bottom, -6px) !important;
+  z-index: 9999 !important;
+  position: relative !important;
+}
+
+.swiper-pagination-bullet-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 100px;
+  width: var(--fill, 0%);
+  background-color: #3b82f6;
+  animation: fillBullet var(--swiper-delay, 3s) linear forwards;
+}
+
+@keyframes fillBullet {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Basic styling */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  color: white;
+}
+.slide-box {
+  /* background-color: #3b82f6; */
+  height: 150px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar.open {
+    display: block !important;
+    position: fixed;
+    left: 0;
+    z-index: 50;
+    width: 300px;
+    min-width: 300px;
+  }
+}
+@media (max-width: 520px) {
+  .text-left font-bold py-2 text-white {
+    display: none !important;
+  }
+}
+
+/* SuccessForm Announcement Modal Styles */
+.success-form-modal {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.success-form-modal .modal-content {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.success-form-pagination-dot {
+  transition: all 0.2s ease;
+}
+
+.success-form-pagination-dot:hover {
+  transform: scale(1.2);
+}
+
+.success-form-pagination-dot.active {
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.swiper-grid-column > .swiper-wrapper {
+    flex-direction: row !important;
+}
+
+.bg-gaming-white-4 {
+  background-color: #ffffff25 !important;
+}
+
+.glass-bg {
+    background: rgba(17, 25, 35, 0.70);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.16) inset;
+    backdrop-filter: blur(50px);
+  }
+
+  .glass-input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+  }
+
+  @media (max-width: 1300px) {
+  .min-h-screen {
+    width: 80% !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .min-h-screen {
+    width: 95% !important;
+  }
+}
+
+@media (max-width: 1px) {
+  .min-h-screen {
+    width: 100% !important;
+  }
+}
+
+.bg-mirage {
+  background: #111923;
+}
+
+.bg-yellow-orange {
+  background-color: #FFB636;
+}
+
+.bg-crimson {
+  background-color: #ED1D49;
+}
+
+.bg-casper {
+  background-color: #A7B5CA;
+}
+
+.text-casper {
+  color: #A7B5CA;
+}
+
+.border-casper {
+  border-color: #A7B5CA;
+}
+
+.border-yellow-orange {
+  border-color:  #FFB636;
+}
+
+.text-yellow-orange {
+  color: #FFB636;
+}
+
+.border-crimson {
+  border-color: #ED1D49;
+}
+
+.text-crimson {
+  color: #ED1D49 ;
+}
+
+.bg-black-blur {
+  background-color: #000000;
+}
+
+/* 'dodger-blue': '#2283F6',
+        'casper': '#A7B5CA',
+        'mirage': '#111923',
+        'yellow-orange': '#FFB636',
+        'crimson': '#ED1D49',
+        'malachite': '#1BB83D',
+        'white-4': 'rgba(255, 255, 255, 0.04)',
+        'white-8': 'rgba(255, 255, 255, 0.08)',
+        'white-13': 'rgba(255, 255, 255, 0.13)',
+        'white-16': 'rgba(255, 255, 255, 0.16)', */
+
+.bg-dodger-blue {
+  background-color: #2283f6;
+}
+
+.text-dodger-blue {
+  color: #2283f6;
+}
+
+.bg-white-4 {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.bg-white-8 {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.border-white-8 {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.bg-white-13 {
+  background-color: rgba(255, 255, 255, 0.13);
+}
+
+.bg-white-16 {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.bg-malachite {
+  background-color: #1BB83D;
+}
+
+.text-chip-casper {
+  color: #A7B5CA;
+}
+
+.text-chip-crimson {
+  color: #ED1D49;
+}
+
+.text-chip-yellow-orange {
+  color: #FFB636;
+}
+
+/* Modal animations */
+@keyframes slide-in-from-bottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.slide-in-from-bottom-8 {
+  animation: slide-in-from-bottom 0.3s ease-out;
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Virtual Keyboard Handling - Simple Bottom Bar Positioning */
+@media (max-width: 1024px) {
+  /* Ensure bottom bar is always visible with high z-index */
+  .fixed.bottom-0 {
+    z-index: 9999 !important;
+  }
+  
+  /* Bottom bar should always be visible */
+  .fixed.bottom-0.block.lg\\:hidden {
+    z-index: 9999 !important;
+  }
+  
+  /* Alternative: Use top positioning to avoid keyboard overlap */
+  .bottom-bar-top-position {
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important;
+    z-index: 9999 !important;
+  }
+}
+
+
