@@ -4,10 +4,9 @@ import { useEffect, useState } from "react";
 import { setAuthUser } from "@/lib/auth";
 import { X, Eye, EyeOff, ChevronDown } from "lucide-react";
 import { useSidebar } from "../../context/SidebarProvider";
-import { Button } from "@/ui";
-import AuthButton from "../ui/AuthButton";
 import { useModalScrollPrevention } from "@/hooks/useModalScrollPrevention";
 import './style.css';
+import TDButton from "../ui/Button/TDButton";
 interface SocialButtonProps {
   icon: React.ReactNode;
   onClick?: () => void;
@@ -15,7 +14,7 @@ interface SocialButtonProps {
 const SocialButton = ({ icon, onClick }: SocialButtonProps) => (
   <button
     onClick={onClick}
-    className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/4 backdrop-blur-[32px] transition-colors hover:bg-white/8"
+    className="flex h-9 w-9 items-center justify-center rounded-lg bg-white-4 backdrop-blur-[32px] transition-colors hover:bg-white-8"
     style={{
       boxShadow: "0 1px 0 0 rgba(255, 255, 255, 0.16) inset",
     }}
@@ -25,7 +24,7 @@ const SocialButton = ({ icon, onClick }: SocialButtonProps) => (
 );
 
 const GoogleIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <svg width="25" height="24" viewBox="0 0 16 16" fill="none">
     <path
       d="M8.04785 0.0263672C10.8197 0.0263672 12.6087 1.44531 13.2812 2.0332L11.0811 4.22168C10.6644 3.85082 9.59876 3.07812 8.12012 3.07812C6.81088 3.07819 5.49265 3.56836 4.61914 4.44727C3.74665 5.32518 3.1475 6.65962 3.14746 7.99414C3.1519 8.65544 3.28648 9.30981 3.54395 9.91895C3.76937 10.4522 4.08529 10.9421 4.47656 11.3672L4.64844 11.5449C5.54216 12.411 6.89156 12.9492 8.17188 12.9492C9.93118 12.9492 12.0876 11.7894 12.5527 9.58105L12.5596 9.54883H8.10547V6.45117H15.502L15.5771 6.77051V6.77148C15.5809 6.79312 15.6699 7.31504 15.6699 8.19434C15.6699 10.2813 14.9635 12.2708 13.5996 13.708C12.212 15.1681 10.2648 15.9736 8.20996 15.9736C5.95033 15.9736 3.75731 15.1366 2.20898 13.5381C0.759984 12.0393 0.0263672 9.99623 0.0263672 8C0.0263672 6.00378 0.801786 3.85312 2.29688 2.36621C3.81229 0.855786 5.88515 0.02646 8.04785 0.0263672Z"
       fill="#A7B5CA"
@@ -36,7 +35,7 @@ const GoogleIcon = () => (
 );
 
 const TelegramIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <svg width="25" height="24" viewBox="0 0 16 16" fill="none">
     <path
       d="M14.5889 2.01172C14.6438 2.01075 14.7335 2.01721 14.8291 2.04004C14.9246 2.06286 15.0256 2.1021 15.1045 2.16602C15.2374 2.2739 15.2751 2.42008 15.293 2.52441C15.3108 2.62884 15.3331 2.86798 15.3154 3.05371C15.1122 5.18874 14.2326 10.3699 13.7852 12.7617C13.5961 13.7726 13.2253 14.1043 12.873 14.1367C12.4845 14.1725 12.1416 14.044 11.8008 13.8438C11.6305 13.7437 11.4608 13.626 11.2861 13.502C11.1114 13.3778 10.9314 13.2467 10.7412 13.1221C10.1472 12.7327 9.68219 12.4171 9.22168 12.1035C8.76101 11.7898 8.30451 11.4779 7.72754 11.0977C7.39491 10.8785 7.20064 10.6853 7.10742 10.5068C7.01472 10.3293 7.02099 10.1655 7.0918 10.0039C7.16305 9.84145 7.29983 9.68064 7.4668 9.51074C7.55005 9.42603 7.64073 9.33937 7.73438 9.24902C7.8281 9.15859 7.92539 9.06461 8.02051 8.96582C8.11969 8.86281 9.03215 8.02538 9.92969 7.17773C10.3783 6.7541 10.8236 6.32836 11.1602 5.99023C11.3284 5.82122 11.4698 5.67344 11.5713 5.55957C11.6219 5.50279 11.6631 5.45409 11.6924 5.41504C11.707 5.39558 11.7188 5.37804 11.7275 5.36328C11.7361 5.34885 11.7416 5.33583 11.7441 5.3252C11.7487 5.3058 11.7532 5.26174 11.7461 5.21387C11.739 5.16607 11.7201 5.11188 11.6777 5.07422C11.6354 5.03679 11.5833 5.02481 11.5322 5.02441C11.4812 5.02403 11.4297 5.0354 11.3877 5.04492C11.3784 5.04707 11.3627 5.05438 11.3418 5.06543C11.3202 5.07685 11.2912 5.09334 11.2559 5.11426C11.1852 5.1561 11.0868 5.21689 10.9609 5.29688C10.7086 5.4572 10.3448 5.69403 9.87012 6.00781C9.39536 6.32161 8.80952 6.71238 8.1123 7.17969L5.6875 8.81152C5.14962 9.18088 4.66342 9.35996 4.22949 9.35059C3.98992 9.3454 3.63886 9.27742 3.26074 9.18262C2.88276 9.08784 2.47838 8.9665 2.13379 8.85449C1.70997 8.71673 1.33187 8.61199 1.06641 8.4834C0.934087 8.4193 0.831045 8.34994 0.764648 8.26855C0.698693 8.18749 0.668479 8.09373 0.682617 7.98047C0.697246 7.86378 0.785586 7.74284 0.952148 7.61914C1.11836 7.49579 1.36078 7.37097 1.67969 7.24414V7.24316C5.61647 5.52796 8.2421 4.39793 9.55566 3.85156C11.4309 3.07158 12.5632 2.61337 13.29 2.34961C14.0167 2.0859 14.3371 2.01621 14.5889 2.01172Z"
       fill="#A7B5CA"
@@ -47,7 +46,7 @@ const TelegramIcon = () => (
 );
 
 const MetamaskIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <svg width="25" height="24" viewBox="0 0 16 16" fill="none">
     <path
       d="M16 4.64258L14.9902 7.80957L16 11.5723L14.8818 15.3174L11.4092 14.2852L8.94629 15.749H7.04688L4.58008 14.2852L1.10938 15.3174L0 11.5576L1.00781 7.82227L0.00390625 4.64062L1.12695 0.251953L6.56641 3.48145H9.44629L14.873 0.25L16 4.64258ZM6.57617 13.2188L6.90137 14.4043H9.08691L9.41211 13.2188L8.76172 12.5039H7.22656L6.57617 13.2188ZM9.34766 10.1816L9.27246 10.6719L9.6123 10.8018L11.5078 10.3369H11.5176V9.7373L11.0127 9.24219H9.71289L9.34766 10.1816ZM4.49707 9.73242H4.49219V10.3271H4.50195L6.39746 10.7979L6.7373 10.667L6.66309 10.1777L6.29785 9.2373H5.00195L4.49707 9.73242ZM10.1582 5.84668L12.6084 7.52246H14.4834L15.4043 4.62695L14.5439 1.27051L10.1582 5.84668ZM0.595703 4.62207L1.51562 7.51758H3.38672L3.38086 7.5127L5.83203 5.83691L1.45605 1.26562L0.595703 4.62207Z"
       fill="#A7B5CA"
@@ -56,7 +55,7 @@ const MetamaskIcon = () => (
 );
 
 const TonIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <svg width="25" height="24" viewBox="0 0 16 16" fill="none">
     <path
       d="M3.04785 1.36914H12.9541C14.4502 1.36935 15.3354 2.91049 14.6191 4.11035L8.50488 14.3525C8.2975 14.7 7.7854 14.722 7.54004 14.418L7.49512 14.3525L1.38184 4.11035C0.664295 2.90813 1.55011 1.36914 3.04785 1.36914ZM3.0459 2.20215C2.27522 2.20245 1.75531 3.01817 2.15625 3.7002V3.70117L5.36133 9.24316L6.63672 11.627V12.623L7.41992 11.8398L7.66113 11.5996L7.55371 11.3984V2.20215H3.0459ZM8.44434 11.5156L9.30664 11.7324L10.6309 9.25586L13.8408 3.69922C14.2423 3.01694 13.7222 2.20117 12.9512 2.20117H8.44434V11.5156Z"
       fill="#A7B5CA"
@@ -67,7 +66,7 @@ const TonIcon = () => (
 );
 
 const TrustWalletIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <svg width="25" height="24" viewBox="0 0 16 16" fill="none">
     <path
       d="M7.5 14.5554C3.51622 12.6038 1.9815 9.29679 1.98145 7.51141V3.14716L7.5 1.35419V14.5554Z"
       fill="#A7B5CA"
@@ -182,7 +181,7 @@ export default function AuthModal() {
                 <div className="flex justify-end mb-6">
                   <button
                     onClick={toggleAuthModal}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/4 bg-white/4 backdrop-blur-[32px] hover:bg-white/8 transition-colors"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white-4 bg-white-4 backdrop-blur-[32px] hover:bg-white-8 transition-colors"
                     style={{
                       boxShadow: "0 1px 0 0 rgba(255, 255, 255, 0.16) inset",
                     }}
@@ -346,7 +345,9 @@ export default function AuthModal() {
 
                   {/* Submit Button */}
                   
-                  <AuthButton type= {isLogin ? "login" : "register"} onClick={isLogin ? login: register}  />
+                  <TDButton onClick={isLogin ? login: register} type="red" className="w-full h-11 text-[14px] font-bold text-white">
+                    {isLogin ? "LOG IN" : "REGISTER"}
+                  </TDButton>
 
                   {/* Spacer */}
                   <div className="flex-1" />
@@ -365,7 +366,7 @@ export default function AuthModal() {
                       <SocialButton icon={<MetamaskIcon />} />
                       <SocialButton icon={<TonIcon />} />
                       <SocialButton icon={<TrustWalletIcon />} />
-                      <button className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/4 backdrop-blur-[32px] text-[#A7B5CA] text-xs font-bold">
+                      <button className="flex h-9 w-9 items-center justify-center rounded-lg bg-white-4 backdrop-blur-[32px] text-[#A7B5CA] text-xs font-bold">
                         +3
                       </button>
                     </div>
@@ -402,7 +403,7 @@ export default function AuthModal() {
                   {/* Close Button */}
                   <button
                     onClick={toggleAuthModal}
-                    className="absolute top-4 right-4 flex h-9 w-9 items-center  justify-center rounded-lg border border-white/4 bg-white/4 backdrop-blur-[32px] hover:bg-white/8 transition-colors"
+                    className="absolute top-4 right-4 flex h-9 w-9 items-center  justify-center rounded-lg border border-white-4 bg-white-4 backdrop-blur-[32px] hover:bg-white-8 transition-colors"
                     style={{
                       boxShadow: "0 1px 0 0 rgba(255, 255, 255, 0.16) inset",
                     }}
@@ -497,7 +498,9 @@ export default function AuthModal() {
 
 
                       {/* Submit Button */}
-                      <AuthButton type="register" />
+                      <TDButton className="!w-full h-11" type="red" onClick={register}>
+                        REGISTER
+                      </TDButton>
 
                       {/* Checkboxes */}
                       <div className="space-y-2">
@@ -558,7 +561,9 @@ export default function AuthModal() {
                   {/* Login Submit Button */}
                   {isLogin && (
                     <>
-                      <AuthButton onClick={login} type="login" />
+                      <TDButton className="!w-full h-11" type="red" onClick={login}>
+                        LOG IN
+                      </TDButton>
                     </>
                   )}
                 </div>
@@ -577,7 +582,7 @@ export default function AuthModal() {
                     <SocialButton icon={<MetamaskIcon />} />
                     <SocialButton icon={<TonIcon />} />
                     <SocialButton icon={<TrustWalletIcon />} />
-                    <button className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/4 backdrop-blur-[32px] text-[#A7B5CA] text-xs font-bold">
+                    <button className="flex h-9 w-9 items-center justify-center rounded-lg bg-white-4 backdrop-blur-[32px] text-[#A7B5CA] text-xs font-bold">
                       98
                     </button>
                   </div>

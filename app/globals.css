@@ -1,25 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --dodger-blue: #2283F6;
+  
+  /* Border radius values */
+  --radius: 8px;
+  
+  /* Additional design tokens */
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 220 13% 91%;
+  --primary: 220 13% 91%;
+  --primary-foreground: 220 13% 91%;
+  --secondary: 220 13% 91%;
+  --secondary-foreground: 220 13% 91%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --muted: 220 13% 91%;
+  --muted-foreground: 220 13% 91%;
+  --accent: 220 13% 91%;
+  --accent-foreground: 220 13% 91%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 13% 91%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 13% 91%;
+  --sidebar-background: 220 13% 91%;
+  --sidebar-foreground: 220 13% 91%;
+  --sidebar-primary: 220 13% 91%;
+  --sidebar-primary-foreground: 220 13% 91%;
+  --sidebar-accent: 220 13% 91%;
+  --sidebar-accent-foreground: 220 13% 91%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 220 13% 91%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+
 
 * {
   box-sizing: border-box;
@@ -840,8 +862,24 @@ body.sidebar-scrolling {
   background: #111923;
 }
 
+.bg-mirage-2 {
+  background-color: #161f2c;
+}
+
+.bg-mirage-4 {
+  background-color: #1C2532;
+}
+
 .bg-yellow-orange {
   background-color: #FFB636;
+}
+
+.bg-ebony-clay {
+  background-color: #2A3546;
+}
+
+.bg-oxford-blue {
+  background-color: #3C485C;
 }
 
 .bg-crimson {
@@ -872,10 +910,6 @@ body.sidebar-scrolling {
   border-color: #ED1D49;
 }
 
-.text-crimson {
-  color: #ED1D49 ;
-}
-
 .bg-black-blur {
   background-color: #000000;
 }
@@ -892,11 +926,11 @@ body.sidebar-scrolling {
         'white-16': 'rgba(255, 255, 255, 0.16)', */
 
 .bg-dodger-blue {
-  background-color: #2283f6;
+  background-color: var(--dodger-blue);
 }
 
 .text-dodger-blue {
-  color: #2283f6;
+  color: var(--dodger-blue);
 }
 
 .bg-white-4 {
@@ -988,5 +1022,7 @@ body.sidebar-scrolling {
     z-index: 9999 !important;
   }
 }
+
+
 
 

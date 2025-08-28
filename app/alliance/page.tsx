@@ -105,7 +105,7 @@ export default function AllianceClient() {
         </div>
 
         {/* Right Content Area */}
-        <div className="flex-1 lg:bg-white/4 p-4 rounded-[12px]">{renderContent()}</div>
+        <div className="flex-1 lg:bg-white-4 p-4 rounded-[12px]">{renderContent()}</div>
       </div>
       
       {/* Mobile Bottom Navigation */}

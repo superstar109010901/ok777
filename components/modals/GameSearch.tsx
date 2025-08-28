@@ -144,13 +144,13 @@ export default function GameSearchModal({ isOpen, onClose }: GameSearchModalProp
       <div className="w-full max-w-5xl mx-auto max-h-[90vh] overflow-y-auto modal-content-scroll" >
         <div className="flex flex-col items-start w-full mx-auto">
           {/* Header */}
-          <div className="flex items-center gap-4 w-full px-6 py-4 rounded-t-[14px] bg-gradient-to-b from-[rgba(17,25,35,0.54)] to-[#002554] border-t border-white/16 backdrop-blur-[32px]">
+          <div className="flex items-center gap-4 w-full px-6 py-4 rounded-t-[14px] bg-gradient-to-b from-[rgba(17,25,35,0.54)] to-[#002554] border-t border-white-16 backdrop-blur-[32px]">
             <h2 className="flex-1 text-white font-montserrat text-lg font-bold">
               Global Game Search
             </h2>
             <button
               onClick={onClose}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/4 bg-white/4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16)] backdrop-blur-[32px] hover:bg-white/8 transition-colors"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white-4 bg-white-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16)] backdrop-blur-[32px] hover:bg-white-8 transition-colors"
             >
               <X className="h-4 w-4 text-[white]" />
             </button>
@@ -177,7 +177,7 @@ export default function GameSearchModal({ isOpen, onClose }: GameSearchModalProp
                   <div ref={providerRef} className="relative">
                     <button
                       onClick={() => setIsProviderOpen(!isProviderOpen)}
-                      className="flex items-center justify-between w-full sm:w-[200px] h-12 px-4 rounded-lg bg-white/8 hover:bg-white/12 transition-colors"
+                      className="flex items-center justify-between w-full sm:w-[200px] h-12 px-4 rounded-lg bg-white-8 hover:bg-white/12 transition-colors"
                     >
                                              <span className="text-gray-300 text-sm font-bold font-montserrat hover:text-white transition-colors">
                          {selectedProvider.label}
@@ -188,7 +188,7 @@ export default function GameSearchModal({ isOpen, onClose }: GameSearchModalProp
                     </button>
 
                     {isProviderOpen && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-[rgba(17,25,35,0.95)] border border-white/8 rounded-lg backdrop-blur-[32px] shadow-lg z-50">
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-[rgba(17,25,35,0.95)] border border-white-8 rounded-lg backdrop-blur-[32px] shadow-lg z-50">
                         {gameProviders.map((provider) => (
                           <button
                             key={provider.id}
@@ -196,7 +196,7 @@ export default function GameSearchModal({ isOpen, onClose }: GameSearchModalProp
                               setSelectedProvider(provider);
                               setIsProviderOpen(false);
                             }}
-                                                         className={`w-full px-4 py-3 text-left hover:bg-white/8 transition-colors ${
+                                                         className={`w-full px-4 py-3 text-left hover:bg-white-8 transition-colors ${
                                selectedProvider.id === provider.id ? 'bg-blue-500/20' : ''
                              }`}
                            >
@@ -213,7 +213,7 @@ export default function GameSearchModal({ isOpen, onClose }: GameSearchModalProp
                   <div ref={typeRef} className="relative">
                     <button
                       onClick={() => setIsTypeOpen(!isTypeOpen)}
-                      className="flex items-center justify-between w-full sm:w-[200px] h-12 px-4 rounded-lg bg-white/8 hover:bg-white/12 transition-colors"
+                      className="flex items-center justify-between w-full sm:w-[200px] h-12 px-4 rounded-lg bg-white-8 hover:bg-white/12 transition-colors"
                     >
                                              <span className="text-gray-300 text-sm font-bold font-montserrat hover:text-white transition-colors">
                          {selectedType.label}
@@ -224,7 +224,7 @@ export default function GameSearchModal({ isOpen, onClose }: GameSearchModalProp
                     </button>
 
                     {isTypeOpen && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-[rgba(17,25,35,0.95)] border border-white/8 rounded-lg backdrop-blur-[32px] shadow-lg z-50">
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-[rgba(17,25,35,0.95)] border border-white-8 rounded-lg backdrop-blur-[32px] shadow-lg z-50">
                         {gameTypes.map((type) => (
                           <button
                             key={type.id}
@@ -232,7 +232,7 @@ export default function GameSearchModal({ isOpen, onClose }: GameSearchModalProp
                               setSelectedType(type);
                               setIsTypeOpen(false);
                             }}
-                                                         className={`w-full px-4 py-3 text-left hover:bg-white/8 transition-colors ${
+                                                         className={`w-full px-4 py-3 text-left hover:bg-white-8 transition-colors ${
                                selectedType.id === type.id ? 'bg-blue-500/20' : ''
                              }`}
                            >
@@ -257,7 +257,7 @@ export default function GameSearchModal({ isOpen, onClose }: GameSearchModalProp
                                      className={`flex h-9 items-center gap-2 px-2 sm:px-3 rounded-lg transition-all duration-300 flex-shrink-0 ${
                      activeCategory === category.id
                        ? 'bg-blue-500 text-white shadow-lg'
-                       : 'text-gray-300 hover:bg-white/8 hover:text-white'
+                       : 'text-gray-300 hover:bg-white-8 hover:text-white'
                    }`}
                 >
                   <div className="flex h-[26px] w-[26px] items-center justify-center flex-shrink-0">

@@ -90,7 +90,7 @@ const BankerPlayerDefault: React.FC = () => {
             <div className="flex items-center gap-4">
               <button 
                 onClick={openChangeGameModal}
-                className="flex h-9 w-9 justify-center items-center rounded-lg border border-white/[0.04] bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-[32px] hover:bg-white/8 transition-colors"
+                className="flex h-9 w-9 justify-center items-center rounded-lg border border-white/[0.04] bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-[32px] hover:bg-white-8 transition-colors"
               >
                 <svg
               width="16"
@@ -139,7 +139,7 @@ const BankerPlayerDefault: React.FC = () => {
               </button>
               <button 
                 onClick={handleMenuClick}
-                className="flex h-9 w-9 justify-center items-center rounded-lg border border-white/[0.04] bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-[32px] hover:bg-white/8 transition-colors"
+                className="flex h-9 w-9 justify-center items-center rounded-lg border border-white/[0.04] bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] backdrop-blur-[32px] hover:bg-white-8 transition-colors"
               >
                 <Menu className="w-4 h-4 text-casper" />
               </button>

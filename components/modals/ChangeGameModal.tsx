@@ -50,7 +50,7 @@ export default function ChangeGameModal({ isOpen, onClose }: ChangeGameModalProp
         style={{ zIndex: 1000000 }}
       >
         {/* Header */}
-        <div  className="flex items-center justify-between px-6 py-4 bg-gradient-to-b from-[#002554] to-[rgba(17,25,35,0.54)] rounded-t-3xl border-t border-white/16 backdrop-blur-[32px] ">
+        <div  className="flex items-center justify-between px-6 py-4 bg-gradient-to-b from-[#002554] to-[rgba(17,25,35,0.54)] rounded-t-3xl border-t border-white-16 backdrop-blur-[32px] ">
           <h2 className="text-xl font-bold text-white font-montserrat">Change game</h2>
           <button
             onClick={onClose}

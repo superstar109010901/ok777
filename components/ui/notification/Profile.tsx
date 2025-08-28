@@ -91,7 +91,7 @@ const UserProfileDropdown = ({ onClose }: UserProfileDropdownProps) => {
     <div className="lg:w-[282px] md:w-[282px] w-full h-full lg:h-auto lg:rounded-[14px] glass-bg p-0 text-white font-montserrat backdrop-blur-[32px] overflow-y-auto">
       <button
         onClick={onClose}
-        className="flex absolute right-4 top-4 h-9 w-9 items-center justify-center rounded-lg border border-white/4 bg-white/4 backdrop-blur-[32px] hover:bg-white/8 transition-colors lg:hidden z-10"
+        className="flex absolute right-4 top-4 h-9 w-9 items-center justify-center rounded-lg border border-white-4 bg-white-4 backdrop-blur-[32px] hover:bg-white-8 transition-colors lg:hidden z-10"
         style={{
           boxShadow: "0 1px 0 0 rgba(255, 255, 255, 0.16) inset",
         }}

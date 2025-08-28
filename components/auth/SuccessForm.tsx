@@ -135,7 +135,7 @@ export function SuccessForm({ isOpen }: AnnouncementModalProps) {
       >
         {/* Close Button */}
         <button
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[rgba(255,255,255,0.16)] bg-white/4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16)] backdrop-blur-[32px] transition-opacity hover:opacity-80 z-10"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[rgba(255,255,255,0.16)] bg-white-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16)] backdrop-blur-[32px] transition-opacity hover:opacity-80 z-10"
           onClick={toggleSuccessForm}
         >
           <X className="h-4 w-4 text-[#A7B5CA]" />

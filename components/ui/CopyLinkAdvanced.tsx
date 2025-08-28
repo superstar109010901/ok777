@@ -90,7 +90,7 @@ export default function CopyLinkAdvanced({
           ? 'opacity-50 cursor-not-allowed bg-gray-500/20 text-gray-400' 
           : copied 
             ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-            : 'bg-white/8 hover:bg-white/12 text-[#A7B5CA] hover:text-white border border-white/8 hover:border-white/16'
+            : 'bg-white-8 hover:bg-white/12 text-[#A7B5CA] hover:text-white border border-white-8 hover:border-white-16'
         }
         ${className}
       `}
@@ -117,7 +117,7 @@ export default function CopyLinkAdvanced({
           ? 'opacity-50 cursor-not-allowed bg-gray-500/20 text-gray-400' 
           : copied 
             ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-            : 'bg-white/8 hover:bg-white/12 text-[#A7B5CA] hover:text-white border border-white/8 hover:border-white/16'
+            : 'bg-white-8 hover:bg-white/12 text-[#A7B5CA] hover:text-white border border-white-8 hover:border-white-16'
         }
         ${className}
       `}

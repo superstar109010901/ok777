@@ -94,7 +94,7 @@ export default function CopyLink({
         ${getSizeClasses()}
         ${copied 
           ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-          : 'bg-white/8 hover:bg-white/12 text-[#A7B5CA] hover:text-white border border-white/8 hover:border-white/16'
+          : 'bg-white-8 hover:bg-white/12 text-[#A7B5CA] hover:text-white border border-white-8 hover:border-white-16'
         }
         ${className}
       `}
@@ -117,7 +117,7 @@ export default function CopyLink({
         ${size === 'sm' ? 'w-8 h-8' : size === 'lg' ? 'w-12 h-12' : 'w-10 h-10'}
         ${copied 
           ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
-          : 'bg-white/8 hover:bg-white/12 text-[#A7B5CA] hover:text-white border border-white/8 hover:border-white/16'
+          : 'bg-white-8 hover:bg-white/12 text-[#A7B5CA] hover:text-white border border-white-8 hover:border-white-16'
         }
         ${className}
       `}

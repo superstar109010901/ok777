@@ -262,7 +262,7 @@ export default function Bottombar() {
       }}
     >
       <div 
-        className="flex w-full px-4 pt-2 pb-0 flex-col items-center rounded-t-2xl border-t border-white/8"
+        className="flex w-full px-4 pt-2 pb-0 flex-col items-center rounded-t-2xl border-t border-white-8"
         style={{
           background: 'rgba(17, 25, 35, 0.54)',
           backdropFilter: 'blur(32px)',

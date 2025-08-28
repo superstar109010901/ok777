@@ -62,138 +62,57 @@ const {
 
 const bannerCards = [
   {
-    title: (
-      <>
-        <span className="text-900 block text-[29.45px] lg:text-[40.56px]">
-          REFER &
-        </span>
-        <span className="text-900 block text-[20.08px] lg:text-[30.42px]">
-          REWARDS
-        </span>
-      </>
-    ),
+    
     button: "CLAIM NOW",
     image: "/images/banner/Banner12.jpg",
     link: "#",
   },
   {
-    title: (
-      <>
-        <span className="text-900 block text-[18.4px] lg:text-[25.35px]">
-          COMPLETE TASKS &
-        </span>
-        <span className="text-900 block text-[16.56px] lg:text-[22.82px]">
-          GET DAILY REWARDS!
-        </span>
-      </>
-    ),
+    
     button: "JOIN NOW",
     image: "/images/banner/Banner10.jpg",
     link: "#",
   },
   {
-    title: (
-      <>
-        <span className="text-900 block text-[18.4px] lg:text-[25.35px]">
-          CHECK-IN
-        </span>
-        <span className="text-900 block text-[16.56px] lg:text-[22.82px]">
-          REWARDS!
-        </span>
-      </>
-    ),
+    
     button: "JOIN NOW",
-    image: "/images/banner/Banner09.png",
+    image: "/images/banner/Banner09.jpg",
     link: "#",
   },
   {
-    title: (
-      <>
-        <span className="text-900 block text-[29.45px] lg:text-[40.56px]">
-          REFER &
-        </span>
-        <span className="text-900 block text-[20.08px] lg:text-[30.42px]">
-          REWARDS
-        </span>
-      </>
-    ),
+    
     button: "CLAIM NOW",
     image: "/images/banner/Banner12.jpg",
     link: "#",
   },
   {
-    title: (
-      <>
-        <span className="text-900 block text-[18.4px] lg:text-[25.35px]">
-          COMPLETE TASKS &
-        </span>
-        <span className="text-900 block text-[16.56px] lg:text-[22.82px]">
-          GET DAILY REWARDS!
-        </span>
-      </>
-    ),
+    
     button: "JOIN NOW",
     image: "/images/banner/Banner10.jpg",
     link: "#",
   },
   {
-    title: (
-      <>
-        <span className="text-900 block text-[18.4px] lg:text-[25.35px]">
-          CHECK-IN
-        </span>
-        <span className="text-900 block text-[16.56px] lg:text-[22.82px]">
-          REWARDS!
-        </span>
-      </>
-    ),
+    
     button: "JOIN NOW",
-    image: "/images/banner/Banner09.png",
+    image: "/images/banner/Banner09.jpg",
     link: "#",
   },
   {
-    title: (
-      <>
-        <span className="text-900 block text-[29.45px] lg:text-[40.56px]">
-          REFER &
-        </span>
-        <span className="text-900 block text-[20.08px] lg:text-[30.42px]">
-          REWARDS
-        </span>
-      </>
-    ),
+    
     button: "CLAIM NOW",
     image: "/images/banner/Banner12.jpg",
     link: "#",
   },
   {
-    title: (
-      <>
-        <span className="text-900 block text-[18.4px] lg:text-[25.35px]">
-          COMPLETE TASKS &
-        </span>
-        <span className="text-900 block text-[16.56px] lg:text-[22.82px]">
-          GET DAILY REWARDS!
-        </span>
-      </>
-    ),
+    
     button: "JOIN NOW",
     image: "/images/banner/Banner10.jpg",
     link: "#",
   },
   {
-    title: (
-      <>
-        <span className="text-900 block text-[18.4px] lg:text-[25.35px]">
-          CHECK-IN
-        </span>
-        <span className="text-900 block text-[16.56px] lg:text-[22.82px]">
-          REWARDS!
-        </span>
-      </>
-    ),
+    
     button: "JOIN NOW",
-    image: "/images/banner/Banner09.png",
+    image: "/images/banner/Banner09.jpg",
     link: "#",
   },
 ] as const;
@@ -432,6 +351,7 @@ const Magic88Content: React.FC<{ isExpanded: boolean }> = ({ isExpanded }) => (
     </div>
   </div>
 );
+
 interface MainContentProps { }
 const MainContent: React.FC<MainContentProps> = () => {
   const { isCollapsed, activeGameCategory } = useSidebar();
@@ -639,13 +559,7 @@ const MainContent: React.FC<MainContentProps> = () => {
 
   const toggleContent = () => setIsExpanded(!isExpanded);
 
-  const toggleSuccessForm = () => {
-    setIsOpen(!isOpen);
-    let successForm = document.getElementById("success-form");
-    if (successForm) {
-      successForm.style.display = isOpen ? "block" : "none";
-    }
-  };
+  
 
   // Render filtered view (mobile only)
   if (isFilteredView()) {
@@ -667,6 +581,7 @@ const MainContent: React.FC<MainContentProps> = () => {
             data={bannerCards}
             renderSlide={(card, index) => <RewardCard {...card} />}
             slidesPerView="auto"
+            autoplay={false}
             spaceBetween={12}
             slideClassName="lg:!w-[486.76px] !w-[353px]"
             showProgressBars={true}

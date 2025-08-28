@@ -147,11 +147,11 @@ export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
         }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-b from-[#002554] to-[rgba(17,25,35,0.54)] rounded-t-3xl border-t border-white/16 backdrop-blur-[32px] ">
+        <div className="flex items-center justify-between px-6 py-4 bg-gradient-to-b from-[#002554] to-[rgba(17,25,35,0.54)] rounded-t-3xl border-t border-white-16 backdrop-blur-[32px] ">
           <h2 className="text-lg font-bold text-white font-montserrat">Menu</h2>
           <button
             onClick={onClose}
-            className="flex items-center justify-center w-9 h-9 rounded-lg border border-white/4 bg-white/4 backdrop-blur-[32px] hover:bg-white/8 transition-colors"
+            className="flex items-center justify-center w-9 h-9 rounded-lg border border-white-4 bg-white-4 backdrop-blur-[32px] hover:bg-white-8 transition-colors"
           >
             <X className="w-4 h-4 text-[#A7B5CA]" />
           </button>
@@ -165,7 +165,7 @@ export default function MenuModal({ isOpen, onClose }: MenuModalProps) {
               <button
                 key={item.id}
                 onClick={item.onClick}
-                className="flex items-center w-full px-4 py-3 rounded-xl bg-white/4 hover:bg-white/8 transition-colors group"
+                className="flex items-center w-full px-4 py-3 rounded-xl bg-white-4 hover:bg-white-8 transition-colors group"
               >
                 <div className="flex items-center justify-center w-6 h-6 mr-4">
                   <IconComponent />

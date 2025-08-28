@@ -84,7 +84,7 @@ export default function AllianceBottomBar() {
   return (
     <div className="fixed block lg:hidden bottom-0 left-0 right-0 z-50 bottom-bar">
       <div 
-        className="flex w-full px-4 pt-2 pb-0 flex-col items-center rounded-t-2xl border-t border-white/8"
+        className="flex w-full px-4 pt-2 pb-0 flex-col items-center rounded-t-2xl border-t border-white-8"
         style={{
           background: 'rgba(17, 25, 35, 0.54)',
           backdropFilter: 'blur(32px)',

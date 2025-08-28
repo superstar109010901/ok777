@@ -172,7 +172,7 @@ export default function GamingProviderModal({ isOpen, onClose }: GamingProviderM
               >
                 {provider.checked ? (
                   <div className="flex h-6 w-6 items-center justify-center rounded border-2 border-[#2283F6] bg-[#2283F6]">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <svg width="25" height="24" viewBox="0 0 16 16" fill="none">
                       <path
                         d="M4 8L7 11L12 5"
                         stroke="white"

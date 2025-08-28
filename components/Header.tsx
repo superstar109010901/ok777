@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AUTH_CHANGED_EVENT, getIsLoggedIn } from "@/lib/auth";
 import UserProfileDropdown from "./ui/notification/Profile";
-import { BlackButton, Button, UnifiedButton } from "./ui";
+import { Button, UnifiedButton } from "./ui";
 import LanguageSelect from "./ui/LanguageSelect";
 import { useModal } from "../context/ModalProvider";
 import { useSidebar } from "../context/SidebarProvider";
@@ -18,6 +18,13 @@ import { FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/free-mode";
 import Link from "next/link";
+import BlackButton from "./ui/Button/BlackButton";
+import ArrowToRightStrokeIcon from "./ui/icons/arrow-to-right-stroke";
+import { cn } from "@/lib/utils";
+import SearchIcon from "./ui/icons/search";
+import TDButton from "./ui/Button/TDButton";
+import MessageDots2Icon from "./ui/icons/message-dots-2";
+import NotificationIcon from "./ui/icons/notification";
 
 // Game navigation tabs for mobile
 const gameNavTabs = [
@@ -31,13 +38,9 @@ const gameNavTabs = [
 // Reusable components to eliminate duplication
 const MenuButton: React.FC<{ onClick: () => void; isCollapsed: boolean }> = ({ onClick, isCollapsed }) => (
   <div className="relative lg:block hidden">
-    <UnifiedButton variant="default" onClick={onClick}>
-      <img
-        src={"/icons/arrow-to-right-stroke.svg"}
-        className={`px-2.5 ${isCollapsed ? "rotate-180" : ""}`}
-        alt={isCollapsed ? "menu" : "expand"}
-      />
-    </UnifiedButton>
+    <BlackButton onClick={onClick}>
+      <ArrowToRightStrokeIcon className={cn("w-4 h-4", isCollapsed ? "rotate-180" : "") } />
+    </BlackButton>
   </div>
 );
 
@@ -45,8 +48,7 @@ const MenuButton: React.FC<{ onClick: () => void; isCollapsed: boolean }> = ({ o
 const Logo: React.FC = () => (
   <div  className="flex items-center">
     <Link href='/'>
-    
-    <img src="/images/logo.svg" alt="777 Gaming Logo" />
+      <img src="/images/logo.svg" alt="777 Gaming Logo" />
     </Link>
   </div>
 );
@@ -79,9 +81,9 @@ const SearchButton: React.FC = () => {
 
   
   return (
-    <UnifiedButton variant="default" className="sm:block hidden" onClick={openGameSearchModal}>
-      <img src="/icons/search.svg" className="px-2.5" alt="search" />
-    </UnifiedButton>
+      <BlackButton className="sm:block hidden" onClick={openGameSearchModal}>
+        <SearchIcon className="w-4 h-4" />
+      </BlackButton>
   );
 };
 
@@ -127,13 +129,13 @@ const AuthSection: React.FC<{ toggleAuthModal: () => void; isLoggedIn: boolean }
         <WalletSection />
       </>:<>
         <div className="relative">
-      <UnifiedButton variant="default" onClick={toggleAuthModal}>
-        <span className="text-white px-4 font-medium text-xs">Log in</span>
-      </UnifiedButton>
+      <BlackButton className="w-[71px]" onClick={toggleAuthModal}>
+        <span className="text-white  font-medium text-xs">Log in</span>
+      </BlackButton>
     </div>
-    <Button variant="red" onClick={toggleAuthModal}>
+    <TDButton type="red" className="w-[85px] h-[33px] rounded-lg" onClick={toggleAuthModal}>
       <span className="text-[12px]">Register</span>
-    </Button>
+    </TDButton>
       </>
     }
     
@@ -173,9 +175,9 @@ const UtilitySection: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
   return (
     <div className="flex items-center gap-2" ref={wrapperRef}>
       <div className="relative lg:block hidden">
-        <UnifiedButton variant="default" onClick={handleToggleLang}>
-          <img src={`/icons/flag-icon/${currentLanguage.code}.svg`} className="px-2.5 h-4" alt="flag" />
-        </UnifiedButton>
+        <BlackButton  onClick={handleToggleLang}>
+          <img src={`/icons/flag-icon/${currentLanguage.code}.svg`} className=" h-4" alt="flag" />
+        </BlackButton>
         {showLang && (
           <div className="absolute right-0 top-full mt-2 z-[1000]">
             <LanguageSelect
@@ -188,9 +190,9 @@ const UtilitySection: React.FC<{ isLoggedIn: boolean }> = ({ isLoggedIn }) => {
         )}
       </div>
       {isLoggedIn && (<NotificationButton onClick={() => openNotifications()} />) }
-      <UnifiedButton variant="default" className="lg:block hidden">
-        <img src="/icons/chat.svg" className="px-2.5" alt="chat" />
-      </UnifiedButton>
+      <BlackButton className="lg:block hidden">
+        <MessageDots2Icon className="w-4 h-4" />
+      </BlackButton>
       {isLoggedIn && (<ProfileButton />)}
     </div>
   );
@@ -221,9 +223,9 @@ const WalletSection: React.FC = () => (
 
 const NotificationButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => (
   <div className="relative">
-    <UnifiedButton variant="default" className="lg:block hidden" onClick={onClick}>
-      <img src="/icons/notification.svg" className="px-2.5" alt="notification" />
-    </UnifiedButton>
+    <BlackButton className="lg:block hidden" onClick={onClick}>
+      <NotificationIcon className="w-4 h-4" />
+    </BlackButton>
   </div>
 );
 
@@ -257,13 +259,13 @@ const ProfileButton: React.FC<{ onClick?: () => void }> = ({ onClick }) => {
 
   return (
     <div className="relative" ref={containerRef}>
-      <UnifiedButton variant="default" onClick={handleButtonClick}>
+      <BlackButton onClick={handleButtonClick}>
         <img
           src="/images/frame.png"
-          className="w-[35px] h-[30px] px-0.5"
+          className="w-[35px] h-[30px]"
           alt="frame"
         />
-      </UnifiedButton>
+      </BlackButton>
       <NotificationBadge />
       {isProfileOpen && (
         <div className="absolute right-0 -right-4 top-full mt-2 z-[1000] w-[98vw] lg:w-auto">

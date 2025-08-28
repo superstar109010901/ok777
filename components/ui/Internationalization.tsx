@@ -247,7 +247,7 @@ export function LanguageSelector({ open, onOpenChange, onLanguageChange, initial
               "touch-manipulation" // Better touch support on mobile
             )}
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="25" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.58662 8.47378L3.28662 11.7738L4.22662 12.7138L6.11329 10.8271L7.99995 8.94044L9.41329 10.3604L11.7733 12.7138L12.7133 11.7738L9.41329 8.47378L8.93995 8.00044L12.7133 4.22711L11.7733 3.28711L7.99995 7.06044L4.22662 3.28711L3.28662 4.22711L7.05995 8.00044L6.58662 8.47378Z" fill="#A7B5CA"/>
             </svg>
           </button>
