@@ -130,7 +130,7 @@ export default function GamingProviderModal({ isOpen, onClose }: GamingProviderM
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end lg:items-center justify-center">
+    <div className="fixed inset-0 z-50 flex items-end lg:items-center justify-center z-[9999]">
       {/* Backdrop */}
       <div 
         className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${

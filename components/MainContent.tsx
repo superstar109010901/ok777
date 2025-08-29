@@ -389,7 +389,7 @@ const MainContent: React.FC<MainContentProps> = () => {
   const FilteredPageHeader: React.FC<{ title: string; count: number, icon: string }> = ({ title, count, icon }) => (
     <div className="p-4 pb-0 pt-0">
       <div className="flex items-center justify-between mb-4   [@media(max-width:1024px)]:mt-[-4px] ">
-        <div className="bg-[rgba(255,255,255,0.08)] rounded-lg p-1.75">
+        <div className="bg-[rgba(255,255,255,0.08)] rounded-lg p-[7px]">
 
           <h1 className="text-white text-[14px] font-bold flex items-center gap-2">
             <img src={icon} className="w-6 hidden lg:block h-6" alt="game" />
@@ -397,7 +397,7 @@ const MainContent: React.FC<MainContentProps> = () => {
           </h1>
           
         </div>
-        <button onClick={toggleOpenSearch} className="p-2.25 bg-[#111923] lg:hidden  lg:bg-[rgba(255,255,255,0.04)] flex gap-1 items-center lg:w-50 rounded-lg hover:bg-[rgba(255,255,255,0.08)] transition-colors">
+        <button onClick={toggleOpenSearch} className="p-[10px] bg-[#111923] lg:hidden  lg:bg-[rgba(255,255,255,0.04)] flex gap-1 items-center lg:w-50 rounded-lg hover:bg-[rgba(255,255,255,0.08)] transition-colors">
             {
               !isOpenSearch ? <X className="w-[18px] h-[18px] text-white" /> : <img src="/icons/search.svg" alt="search" className="w-[18px] h-[18px]" />
             }
@@ -440,7 +440,7 @@ const MainContent: React.FC<MainContentProps> = () => {
               />
             </svg>
           </button>
-          <button onClick={toggleOpenSearch} className="p-2.25 bg-[#111923]  lg:bg-[rgba(255,255,255,0.04)] flex gap-1 items-center lg:w-50 rounded-lg hover:bg-[rgba(255,255,255,0.08)] transition-colors">
+          <button onClick={toggleOpenSearch} className="p-[10px] bg-[#111923]  lg:bg-[rgba(255,255,255,0.04)] flex gap-1 items-center lg:w-50 rounded-lg hover:bg-[rgba(255,255,255,0.08)] transition-colors">
             <img src="/icons/search.svg" alt="search" className="w-[18px] h-[18px]" />
             <span className="text-[#A7B5CA] hidden lg:block text-sm">Search</span>
           </button>
@@ -695,7 +695,7 @@ const MainContent: React.FC<MainContentProps> = () => {
   // Render home view
   return (
     <div
-      className={`lg:px-6 px-1 lg:py-6 py-15 w-full max-w-[1920px] mx-auto overflow-x-hidden margin auto ${isCollapsed
+      className={`lg:px-6 px-1 lg:py-6 py-15 pt-4 w-full max-w-[1920px]  mx-auto overflow-x-hidden margin auto ${isCollapsed
         ? "lg:w-[calc(100vw-80px)] xl:w-[calc(100vw-80px)]"
         : "xl:w-[calc(100vw-315px)] lg:w-[calc(100vw-315px)] 2xl:w-[calc(100vw-315px)]"
         }`}
@@ -704,7 +704,7 @@ const MainContent: React.FC<MainContentProps> = () => {
       <SuccessForm isOpen={isOpen} />
 
       {/* Main Banner Section */}
-      <div className="lg:mb-16 mb-8">
+      <div className="lg:mb-16 mb-8 lg:mt-0 mt-[45px]">
         <SwiperSlider
           key={`banner-swiper-${activeGameCategory}`}
           data={bannerCards}
