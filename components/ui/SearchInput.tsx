@@ -67,7 +67,7 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
     );
 
     return (
-      <div className={cn("flex w-48 px-4 py-3 justify-center items-center gap-2 rounded-lg border border-dodger-blue h-12", className)}>
+      <div className={cn("flex w-full px-4 py-3 justify-center items-center gap-2 rounded-lg border border-dodger-blue h-12", className)}>
         <div className="flex items-center flex-shrink-0">
           {searchIcon}
         </div>

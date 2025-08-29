@@ -3,7 +3,7 @@
 import { X } from "lucide-react";
 import { createPortal } from "react-dom";
 import { useModalScrollPrevention } from "@/hooks/useModalScrollPrevention";
-import { card10 } from "../../main-content-data.json"
+import mainContentData from "../../main-content-data.json"
 import Link from "next/link";
 interface ChangeGameModalProps {
   isOpen: boolean;
@@ -64,7 +64,7 @@ export default function ChangeGameModal({ isOpen, onClose }: ChangeGameModalProp
         <div className="p-6 bg-gray-900 ">
           <div className="grid grid-cols-3 gap-4">
             {
-              card10.map((item, index) => <div className="rounded-lg overflow-hidden" key={index}>
+              mainContentData.card10.map((item, index) => <div className="rounded-lg overflow-hidden" key={index}>
                 <Link href={item.link} 
                 onClick={onClose}
                   className="cursor-pointer"

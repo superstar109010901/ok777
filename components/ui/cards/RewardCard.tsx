@@ -20,7 +20,7 @@ const TypeOne: React.FC<TypeOneProps> = ({
 }) => {
   return (
     <div
-      className="group relative overflow-hidden rounded-[14px] lg:h-[270px] h-[196px] px-8 py-16 flex items-end text-white shadow-md transition-all duration-300 "
+      className="group relative overflow-hidden rounded-[14px] lg:h-[270px] h-[196px] lg:px-8 px-6 lg:py-16 py-8 flex items-end text-white shadow-md transition-all duration-300 "
       style={{ width: "100%" }}
     >
       {/* Background image layer with hover zoom */}
@@ -43,7 +43,7 @@ const TypeOne: React.FC<TypeOneProps> = ({
         <div>
           <a href={link}>
             
-            <FlatButton className="w-[173px] h-[52px] font-bold rounded-[12.6px] bg-[linear-gradient(#0C60FF,#2C9FFA)]">
+            <FlatButton className="lg:w-[173px] w-[125.58px] lg:h-[52px] lg:text-[18.9px] text-[13.72px] h-[33.73px] font-bold lg:rounded-[12.6px] rounded-[9.15px] bg-[linear-gradient(#0C60FF,#2C9FFA)]">
               {button}
             </FlatButton>
           </a>

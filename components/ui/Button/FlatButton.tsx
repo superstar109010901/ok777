@@ -16,7 +16,7 @@ const FlatButton: React.FC<FlatButtonProps> = ({
 }) => {
   return (
     <button onClick={onClick} className="pushable group relative border-none bg-transparent p-0 cursor-pointer outline-offset-1 transition-filter duration-250 focus:outline-none focus-visible:outline">
-                    <span className={cn("edge absolute  top-[3px] left-0 w-full h-full  rounded-[8px] bg-[#2283F680]")}></span>
+                    <span className={cn("edge absolute  top-[3px] left-0 w-full h-full rounded-[8px] !bg-[#2283F680] opacity-80", className)}></span>
                     <span
                         className={cn(`front relative rounded-[8px]   text-white will-change-transform
                         
